@@ -87,6 +87,9 @@ namespace TersPerspektif
                 return;
             }
 
+            resolution = int.Parse(resBox.Text); // Girilen çözünürlük deðerini oku
+            bitmap1 = new Bitmap(resolution, resolution); // Girilen çözünürlük deðerinden bir bitmap yarat
+
 
             //Kullanýcýdan gözlemci koordinat sisteminin merkezini alýr.
             xa = int.Parse(textBox1.Text);
@@ -104,7 +107,7 @@ namespace TersPerspektif
             //ters transformasyon matrisini oluþtur.
             ttransformasyon(alfa, beta, teta);
 
-            bitmap1 = new Bitmap(resolution, resolution); ;
+            bitmap1 = new Bitmap(resolution, resolution);
             //ekran üzerinde 400x400'lük bir alan tara (xs-zs koordinatlarý).
             for (j = 0; j < resolution; j++)
             {
@@ -152,9 +155,9 @@ namespace TersPerspektif
 
             
 
-            var bitmapToShow = ResizeBitmap(bitmap1);
+            var bitmapToShow = ResizeBitmap(bitmap1); // seçilen çözünürlükte hesaplanan bitmap'i pictureBox boyutlarýna indirgeme yapýyoruz
 
-            if (checkBox1.Checked)
+            if (checkBox1.Checked) // smoothing seçili ise smoothing yapýyoruz
             {
                 bitmapToShow = SmoothImage(bitmapToShow);
             }
@@ -164,17 +167,11 @@ namespace TersPerspektif
 
         }
 
-        private void resBtn_Click(object sender, EventArgs e)
-        {
-            resolution = int.Parse(resBox.Text);
-            bitmap1 = new Bitmap(resolution, resolution);
-        }
-
         public Bitmap ResizeBitmap(Bitmap inputBitmap)
         {
-            Bitmap bitmapToShow = new Bitmap(400, 400);
+            Bitmap bitmapToShow = new Bitmap(400, 400); // pictureBox boyutlarý 400x400 olduðu için o boyutlarda yeni bir bitmap oluþturuyoruz
 
-            // Yeniden boyutlandýrma iþlemi
+            // Seçilen çözünürlükte hesaplanan bitmapimize yeniden boyutlandýrma iþlemi yapýyoruz
             using (Graphics g = Graphics.FromImage(bitmapToShow))
             {
                 g.InterpolationMode = InterpolationMode.HighQualityBicubic;
@@ -191,9 +188,9 @@ namespace TersPerspektif
         {
             Bitmap smoothedImage = new Bitmap(inputImage.Width, inputImage.Height);
 
-            int windowSize = 3; // Pürüzsüzleþtirme penceresinin boyutu (örnek olarak 3x3)
+            int windowSize = 3; // Smoothing için alýnacak "örnek" boyutu
 
-            for (int y = 0; y < inputImage.Height; y++)
+            for (int y = 0; y < inputImage.Height; y++) // windowSize x windowSize lýk alan seç, R G B deðerlerini topla, ortalamasýný al ve alana bu yeni ortalamayý ata
             {
                 for (int x = 0; x < inputImage.Width; x++)
                 {

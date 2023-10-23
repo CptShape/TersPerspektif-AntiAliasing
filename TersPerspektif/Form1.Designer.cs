@@ -53,7 +53,6 @@ namespace TersPerspektif
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.resBox = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.resBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
@@ -314,7 +313,7 @@ namespace TersPerspektif
             // checkBox1
             // 
             this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(650, 434);
+            this.checkBox1.Location = new System.Drawing.Point(728, 432);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(76, 17);
             this.checkBox1.TabIndex = 22;
@@ -323,7 +322,7 @@ namespace TersPerspektif
             // 
             // resBox
             // 
-            this.resBox.Location = new System.Drawing.Point(570, 199);
+            this.resBox.Location = new System.Drawing.Point(571, 432);
             this.resBox.Name = "resBox";
             this.resBox.Size = new System.Drawing.Size(95, 20);
             this.resBox.TabIndex = 23;
@@ -332,28 +331,17 @@ namespace TersPerspektif
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(505, 202);
+            this.label7.Location = new System.Drawing.Point(588, 416);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(57, 13);
             this.label7.TabIndex = 24;
             this.label7.Text = "Resolution";
-            // 
-            // resBtn
-            // 
-            this.resBtn.Location = new System.Drawing.Point(735, 196);
-            this.resBtn.Name = "resBtn";
-            this.resBtn.Size = new System.Drawing.Size(75, 23);
-            this.resBtn.TabIndex = 25;
-            this.resBtn.Text = "Uygula";
-            this.resBtn.UseVisualStyleBackColor = true;
-            this.resBtn.Click += new System.EventHandler(this.resBtn_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(906, 528);
-            this.Controls.Add(this.resBtn);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.resBox);
             this.Controls.Add(this.checkBox1);
@@ -421,7 +409,6 @@ namespace TersPerspektif
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.TextBox resBox;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Button resBtn;
     }
 }
 
