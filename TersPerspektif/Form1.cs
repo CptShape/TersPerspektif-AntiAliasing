@@ -188,9 +188,9 @@ namespace TersPerspektif
         {
             Bitmap smoothedImage = new Bitmap(inputImage.Width, inputImage.Height);
 
-            int windowSize = 3; // Smoothing için alýnacak "örnek" boyutu
+            int smoothSize = 3; // Smoothing için alýnacak "örnek" boyutu
 
-            for (int y = 0; y < inputImage.Height; y++) // windowSize x windowSize lýk alan seç, R G B deðerlerini topla, ortalamasýný al ve alana bu yeni ortalamayý ata
+            for (int y = 0; y < inputImage.Height; y++) // smoothSize x smoothSize lýk alan seç, R G B deðerlerini topla, ortalamasýný al ve alana bu yeni ortalamayý ata
             {
                 for (int x = 0; x < inputImage.Width; x++)
                 {
@@ -200,9 +200,9 @@ namespace TersPerspektif
 
                     int count = 0;
 
-                    for (int offsetY = -windowSize; offsetY <= windowSize; offsetY++)
+                    for (int offsetY = -smoothSize; offsetY <= smoothSize; offsetY++)
                     {
-                        for (int offsetX = -windowSize; offsetX <= windowSize; offsetX++)
+                        for (int offsetX = -smoothSize; offsetX <= smoothSize; offsetX++)
                         {
                             int newX = x + offsetX;
                             int newY = y + offsetY;
